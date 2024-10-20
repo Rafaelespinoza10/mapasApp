@@ -1,0 +1,30 @@
+<div #map style="width: 100%; height: 100vh;"></div>
+<ul class="list-group">
+
+  <li class="list-group-item"
+     *ngFor="let marker of markers; index as i"
+      [style.background-color]="marker.color">
+    <button
+    class="transparent-button"
+      (click)="deleteMarker(i)"
+      [ngClass]="{
+        'text-white': marker.color === '#080808',
+        'text-black': marker.color !== '#080808',
+      }"
+    >
+      Marker {{  i + 1 }}
+    </button>
+  </li>
+</ul>
+
+
+<div class="flex gap-2">
+
+  <button class="btn btn-primary"
+    (click)="addInitialMarker()"
+  >
+      Add Initial Marker
+  </button>
+
+
+</div>
